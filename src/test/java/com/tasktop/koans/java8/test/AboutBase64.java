@@ -22,10 +22,9 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Base64;
 
+import com.tasktop.koans.KoanRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import com.tasktop.koans.KoanRunner;
 
 @RunWith(KoanRunner.class)
 public class AboutBase64 {
@@ -34,14 +33,14 @@ public class AboutBase64 {
 	public void encodeToBase64() {
 		byte[] encoded = Base64.getEncoder().encode("my-string".getBytes());
 
-		String myString = new String(new byte[] {}); // FIXME: create the string using the encoded bytes
+		String myString = new String(encoded); // create the string using the encoded bytes
 		assertEquals("bXktc3RyaW5n", myString);
 	}
 
 	@Test
 	public void decodeFromBase64() {
-		// FIXME: Where do we get an encoded string that means "my-string"? One hint... look up!
-		byte[] decoded = Base64.getDecoder().decode("".getBytes());
+		// Where do we get an encoded string that means "my-string"? One hint... look up!
+		byte[] decoded = Base64.getDecoder().decode("bXktc3RyaW5n".getBytes());
 
 		String myString = new String(decoded);
 		assertEquals("my-string", myString);
